@@ -1,0 +1,16 @@
+
+.navigation{
+    padding: 15px;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: rgb(22, 3, 35);
+   
+}
+
+a .active{
+    color: orange;
+}
