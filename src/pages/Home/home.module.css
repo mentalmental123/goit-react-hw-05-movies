@@ -1,0 +1,10 @@
+.movies-list {
+  list-style: none;
+  padding: 0;
+  margin-left: 20px;
+}
+
+.movie {
+  display: flex;
+  gap: 5px;
+}

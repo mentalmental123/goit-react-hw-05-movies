@@ -1,31 +1,24 @@
 import axios from "axios";
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-const API_KEY = 'c7233bc29883c6e289635e083fc7eb75';
-const HOST = 'api.themoviedb.org/';
-
-axios.default.baseURL = HOST;
-
+const baseUrl = "https://api.themoviedb.org/";
+const apiKey = "c7233bc29883c6e289635e083fc7eb75";
 
 export const searchParams = new URLSearchParams({
-    q: "",
-    key : API_KEY,
-})
+  api_key: apiKey,
+});
 
-export async function getMovies(querry) {
-  if (querry) {
-    return;
-  }
-  searchParams.set("q" , querry);
-    try{
-    const data = await axios.get(searchParams);
-     if (data.totalHits === 0) {
-        Notify.failure(
-          "Sorry, there are no movies matching your search query. Please try again."
-        );
-      }
+axios.defaults.baseURL = `${baseUrl}`;
+class Movies {
+  async getData(querry) {
+    try {
+      const { data } = await axios.get(`${querry}?${searchParams}`);
       return data;
-    }catch (e) {
+    } catch (e) {
       console.error(e.message);
     }
+  }
 }
+
+const TMDB = new Movies();
+
+export { TMDB };

@@ -1,0 +1,20 @@
+.upper-bold {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.additional-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.back-link {
+  text-transform: uppercase;
+  text-decoration: none;
+  display: block;
+  color: black;
+}
+
+.back-link:hover {
+  color: orange;
+}
