@@ -8,7 +8,6 @@ export default function MovieDetails() {
   const { id } = useParams();
   const [movieDetails, setMovieDetails] = useState({});
   const location = useLocation();
-  console.log(location);
   const backLinkHref = location.state?.from ?? "/movies";
 
   useEffect(() => {

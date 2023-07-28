@@ -9,24 +9,21 @@ export default function MovieReviews() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await TMDB.getData(`3/movie/${id}/reviews`);
-      console.log(data);
       setMovieReviews(data.results);
     };
     fetchData();
   }, [id]);
-
-  console.log(movieReviews);
 
   return (
     <ul>
       {movieReviews.length === 0 ? (
         <p>No reviews yet</p>
       ) : (
-        movieReviews?.map(({ author, content }) => (
-          <>
+        movieReviews?.map(({ author, content, id }) => (
+          <li key={id}>
             <h3>{author}</h3>
             <p>{content}</p>
-          </>
+          </li>
         ))
       )}
     </ul>

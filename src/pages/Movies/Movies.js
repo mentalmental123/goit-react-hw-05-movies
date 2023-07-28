@@ -17,7 +17,6 @@ export default function Movies() {
   useEffect(
     () => {
       const fetchData = async () => {
-        console.log(name);
         searchParams.append("query", searchQuery || name);
         const data = await TMDB.getData("3/search/movie");
         setMovie(data.results);
